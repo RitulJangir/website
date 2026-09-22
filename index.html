@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0b0a">
+  <meta name="description" content="Ritul Jangir — AI researcher working on computer vision, generative models, video understanding, and medical AI.">
+  <title>Ritul Jangir — AI Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#090b09;--panel:#111410;--panel2:#151914;--text:#eef0e9;--muted:#a1a79a;--dim:#737a6e;--line:#293026;--accent:#a3e635;--accent2:#d4f99b;--max:1160px;--radius:8px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 Inter,system-ui,sans-serif}
+    a{color:inherit;text-decoration:none}button{font:inherit}img,svg{max-width:100%}
+    .container{width:min(var(--max),calc(100% - 48px));margin:auto}
+    .mono,.eyebrow,.badge,.meta{font-family:"DM Mono",monospace}
+    .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+    .nav{position:fixed;z-index:20;top:0;left:0;right:0;background:#090b09eF;border-bottom:1px solid #293026cc;backdrop-filter:blur(16px)}
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font:700 20px "Space Grotesk",sans-serif;letter-spacing:-.04em}.brand span{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:25px}.nav-links a{font-size:13px;color:var(--muted);transition:color .2s}
+    .nav-links a:hover,.socials a:hover{color:var(--accent)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:11px 16px;border:1px solid var(--line);border-radius:5px;font-size:13px;font-weight:600;transition:.2s;cursor:pointer}
+    .btn-primary{background:var(--accent);border-color:var(--accent);color:#10150a}.btn-primary:hover{background:var(--accent2);border-color:var(--accent2);transform:translateY(-1px)}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+    .menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:5px;padding:8px}
+    .mobile-menu{display:none}
+    .hero{padding:156px 0 90px;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#a3e63508 1px,transparent 1px),linear-gradient(90deg,#a3e63508 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 85%);pointer-events:none}
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+    h1,h2,h3,h4{font-family:"Space Grotesk",sans-serif;line-height:1.15;margin:0;letter-spacing:-.035em}
+    h1{font-size:clamp(42px,6vw,76px);max-width:850px;margin:20px 0 22px}
+    h1 em{font-style:normal;color:var(--accent)}
+    .hero-copy{font-size:17px;color:var(--muted);max-width:650px;margin:0 0 28px}
+    .hero-ctas,.socials{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .socials{margin-top:24px;gap:20px}.socials a{font-size:13px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:3px}
+    .hero-card{border:1px solid var(--line);background:linear-gradient(145deg,#141912,#0e100d);padding:25px;border-radius:var(--radius);position:relative}
+    .hero-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+    .live{font:11px "DM Mono",monospace;color:var(--accent)}.live:before{content:"";display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;margin:0 8px 1px 0}
+    .hero-card h3{font-size:21px;margin-bottom:10px}.hero-card p{font-size:13px;color:var(--muted);margin:0}
+    .focus-list{display:grid;gap:12px;margin-top:24px}.focus-item{display:flex;justify-content:space-between;gap:12px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+    .focus-item b{font-weight:500;color:var(--text)}
+    .quick-stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:38px}.stat strong{display:block;font:700 28px "Space Grotesk";color:var(--accent)}.stat span{font-size:12px;color:var(--muted)}
+    section{padding:88px 0}.section-alt{background:#0d100c;border-top:1px solid #20261e;border-bottom:1px solid #20261e}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:36px}
+    .section-head h2{font-size:clamp(30px,4vw,42px);margin-top:10px}.section-head p{max-width:500px;color:var(--muted);font-size:14px;margin:0}
+    .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px}.bio p{color:var(--muted);font-size:15px;margin:0 0 17px}
+    .info-box{background:var(--panel);border:1px solid var(--line);padding:24px;border-radius:var(--radius)}
+    .info-box h3{font-size:16px;margin-bottom:16px}.info-row{display:flex;gap:12px;margin:12px 0;color:var(--muted);font-size:13px}.info-row:before{content:"↳";color:var(--accent)}
+    .tag-list{display:flex;gap:9px;flex-wrap:wrap}.tag{border:1px solid var(--line);padding:8px 13px;border-radius:30px;font-size:12px;color:#d1d7c9;background:#11140f}
+    .research-feature{border:1px solid #4b632b;background:linear-gradient(120deg,#171e11,#10130e 70%);padding:32px;border-radius:var(--radius);margin-bottom:20px;position:relative;overflow:hidden}
+    .research-feature:after{content:"OPHEDIT";position:absolute;right:-8px;bottom:-45px;font:700 clamp(65px,12vw,140px) "Space Grotesk";color:#a3e63508;pointer-events:none}
+    .research-grid,.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .research-card,.project-card{border:1px solid var(--line);background:var(--panel);padding:26px;border-radius:var(--radius);transition:border-color .2s,transform .2s}
+    .research-card:hover,.project-card:hover{border-color:#607d35;transform:translateY(-2px)}
+    .badge{display:inline-flex;font-size:10px;letter-spacing:.04em;text-transform:uppercase;padding:5px 9px;border-radius:3px;margin-bottom:15px}
+    .badge-oral{background:var(--accent);color:#10150a}.badge-accepted{border:1px solid #719c37;color:var(--accent)}.badge-review{border:1px solid #586052;color:#b7bdb0}.badge-project{border:1px solid var(--line);color:var(--muted)}
+    .research-card h3,.research-feature h3,.project-card h3{font-size:22px;margin-bottom:8px}
+    .venue{font:11px "DM Mono",monospace;color:var(--accent);margin-bottom:15px}
+    .research-card p,.research-feature p,.project-card p{font-size:13.5px;color:var(--muted);margin:0 0 18px}
+    .research-feature .feature-layout{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:start;position:relative;z-index:1}
+    .feature-label{font:11px "DM Mono",monospace;color:var(--accent2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+    .link-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px}
+    .text-link{font-size:12px;font-weight:600;border-bottom:1px solid #56604b;padding-bottom:3px}.text-link:hover{color:var(--accent);border-color:var(--accent)}
+    details{border-top:1px solid var(--line);margin-top:18px;padding-top:13px}
+    summary{font-size:12px;color:var(--accent);cursor:pointer;list-style:none;font-weight:600}
+    summary::-webkit-details-marker{display:none}summary:after{content:"＋";float:right}details[open] summary:after{content:"−"}
+    .detail-content{padding-top:12px;color:var(--muted);font-size:13px}.detail-content ul{padding-left:18px;margin:8px 0}.detail-content li{margin:5px 0}
+    .project-card .project-type{font:10px "DM Mono",monospace;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+    .pub-list{border-top:1px solid var(--line)}.pub{display:grid;grid-template-columns:1fr auto;gap:20px;padding:20px 0;border-bottom:1px solid var(--line);align-items:center}
+    .pub h3{font-size:16px;margin-bottom:6px}.pub p{font-size:12px;color:var(--muted);margin:0}.pub .badge{margin:0}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.skill-box{padding:21px;border:1px solid var(--line);background:var(--panel);border-radius:var(--radius)}
+    .skill-box h3{font-size:15px;margin-bottom:14px}.skill-box .tag-list{gap:7px}.skill-box .tag{font-size:11px;padding:6px 10px}
+    .ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.ach{border:1px solid var(--line);padding:23px;background:var(--panel);border-radius:var(--radius)}
+    .ach strong{display:block;font:700 27px "Space Grotesk";color:var(--accent);margin-bottom:7px}.ach h3{font-size:14px;margin-bottom:6px}.ach p{font-size:12px;color:var(--muted);margin:0}
+    .contact-box{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:35px;border:1px solid #43572b;background:linear-gradient(110deg,#151d10,#10130e);border-radius:var(--radius)}
+    .contact-box h2{font-size:clamp(28px,4vw,40px);margin:10px 0}.contact-box p{color:var(--muted);font-size:14px;margin:0;max-width:600px}
+    footer{padding:24px 0;border-top:1px solid var(--line);color:var(--dim);font-size:11px}.footer-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:900px){.nav-links{display:none}.menu-toggle{display:inline-flex}.mobile-menu{position:fixed;z-index:19;top:72px;left:0;right:0;background:#0a0c09;border-bottom:1px solid var(--line);padding:18px 24px 24px;display:none;flex-direction:column;gap:15px}.mobile-menu.open{display:flex}.mobile-menu a{font-size:14px;color:var(--muted)}.hero-grid,.about-grid{grid-template-columns:1fr;gap:36px}.hero{padding-top:130px}.hero-card{max-width:620px}.skills-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.container{width:calc(100% - 36px)}section{padding:65px 0}.nav-inner{height:64px}.mobile-menu{top:64px}.nav-actions .btn{padding:9px 11px;font-size:11px}.hero{padding:116px 0 65px}.hero-grid{gap:30px}h1{font-size:43px}.hero-copy{font-size:15px}.quick-stats{gap:22px}.stat strong{font-size:24px}.section-head{display:block}.section-head p{margin-top:13px}.research-grid,.project-grid,.skills-grid,.ach-grid{grid-template-columns:1fr}.research-feature{padding:24px}.research-feature .feature-layout{grid-template-columns:1fr}.pub{grid-template-columns:1fr;gap:8px}.contact-box{padding:25px;display:block}.contact-box .btn{margin-top:22px}.research-card,.project-card{padding:22px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Ritul Jangir home">ritul<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#skills">Skills</a><a href="#achievements">Achievements</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-primary resume-link" href="resume.pdf" download hidden>Download CV ↗</a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation menu">☰</button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#skills">Skills</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
+    <a class="resume-link" href="resume.pdf" download hidden>Download CV ↗</a>
+  </div>
+
+  <main>
+    <header class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow reveal">AI Researcher · Machine Learning Engineer</div>
+          <h1 class="reveal">Building vision systems that <em>see, reason</em> & create.</h1>
+          <p class="hero-copy reveal">I'm Ritul Jangir, an AI researcher working across computer vision, generative modeling, video understanding, and medical AI. I turn research ideas into practical, carefully evaluated systems.</p>
+          <div class="hero-ctas reveal">
+            <a class="btn btn-primary" href="#research">Explore research ↓</a>
+            <a class="btn btn-ghost" href="#contact">Get in touch ↗</a>
+          </div>
+          <div class="socials reveal" aria-label="Social profiles">
+            <a href="https://scholar.google.com/citations?hl=en&amp;user=_ycbz-sAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+            <a href="https://github.com/RitulJangir" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/rituljangir/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          </div>
+          <div class="quick-stats reveal">
+            <div class="stat"><strong>01</strong><span>Oral paper</span></div>
+            <div class="stat"><strong>03</strong><span>Featured research threads</span></div>
+            <div class="stat"><strong>CV · GenAI</strong><span>Core research areas</span></div>
+          </div>
+        </div>
+        <aside class="hero-card reveal" aria-label="Research snapshot">
+          <div class="hero-card-top"><span class="eyebrow">Research snapshot</span><span class="live">ACTIVE</span></div>
+          <h3>From pixels to meaningful predictions.</h3>
+          <p>Researching controllable video generation, zero-shot accident understanding, and clinically grounded report generation.</p>
+          <div class="focus-list">
+            <div class="focus-item"><b>Generative AI</b><span>Editing · Diffusion</span></div>
+            <div class="focus-item"><b>Video Understanding</b><span>Temporal · Spatial</span></div>
+            <div class="focus-item"><b>Medical AI</b><span>Clinical grounding</span></div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="bio reveal">
+          <div class="eyebrow">A little about me</div><h2 style="font-size:36px;margin:10px 0 22px">Research-minded. Engineer at heart.</h2>
+          <p>My work sits at the intersection of computer vision and applied machine learning. I’m interested in systems that go beyond recognizing visual patterns—systems that can understand temporal events, make spatially grounded predictions, and generate or edit content while respecting domain constraints.</p>
+          <p>Across my research, I’ve worked on ophthalmic surgical video editing, accident detection and localization, CT-based rib fracture report generation, and generative image modeling. I enjoy moving from paper-level ideas to implementation, experimentation, and evaluation.</p>
+          <p>I completed my M.Tech in Artificial Intelligence at IIT Jodhpur. I’m especially interested in research engineering and applied research roles where strong modeling meets real-world problems.</p>
+        </div>
+        <aside class="info-box reveal">
+          <h3>Research at a glance</h3>
+          <div class="info-row">M.Tech, Artificial Intelligence — IIT Jodhpur</div>
+          <div class="info-row">Computer vision & video understanding</div>
+          <div class="info-row">Generative models and diffusion-based editing</div>
+          <div class="info-row">Medical imaging and clinical AI</div>
+          <div class="info-row">Model training, evaluation, and end-to-end ML systems</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-alt">
+      <div class="container reveal">
+        <div class="section-head"><div><div class="eyebrow">What I explore</div><h2>Research interests</h2></div><p>Topics that connect my research and engineering work.</p></div>
+        <div class="tag-list">
+          <span class="tag">Computer Vision</span><span class="tag">Video Understanding</span><span class="tag">Generative AI</span><span class="tag">Diffusion Models</span><span class="tag">Medical AI</span><span class="tag">Multimodal Learning</span><span class="tag">Temporal Modeling</span><span class="tag">Autonomous Driving</span><span class="tag">Vision-Language Models</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">Selected work</div><h2>Research</h2></div>
+          <p>Research papers and ongoing work. Publication status is stated per project; confidential manuscripts are not hosted here.</p>
+        </div>
+
+        <article class="research-feature reveal">
+          <div class="feature-layout">
+            <div>
+              <div class="badge badge-oral">Oral paper · Accepted</div>
+              <div class="feature-label">Featured research / 01</div>
+              <h3>OphEdit: Training-Free Text-Guided Editing of Ophthalmic Surgical Video</h3>
+              <div class="venue">MedViD Workshop · ECCV 2026</div>
+              <p>OphEdit is a training-free framework for text-guided editing of ophthalmic surgical videos. It uses deterministic second-order ODE inversion to capture source-video attention values, then selectively injects them into the conditional branch of classifier-free guidance during denoising—aiming to preserve fine anatomical geometry and temporal consistency while applying text-driven edits.</p>
+              <div class="link-row">
+                <a class="text-link" href="papers/OphEdit.pdf" target="_blank" rel="noopener">Read paper ↗</a>
+                <a class="text-link" href="https://github.com/ophedit/OphEdit" target="_blank" rel="noopener noreferrer">Official code ↗</a>
+              </div>
+            </div>
+            <div class="eyebrow" style="white-space:nowrap">ECCV · 2026</div>
+          </div>
+          <details><summary>Method & contribution</summary><div class="detail-content">
+            <ul><li>Training-free, text-guided editing for ophthalmic surgical video.</li><li>Deterministic second-order ODE inversion to capture source-video attention Value tensors.</li><li>Selective attention-value injection during classifier-free-guidance denoising to retain anatomy and temporal structure.</li><li>Clinical evaluation includes edits such as instrument swaps and procedural variations.</li></ul>
+          </div></details>
+        </article>
+
+        <div class="research-grid">
+          <article class="research-card reveal">
+            <div class="badge badge-accepted">Accepted · CVPR 2026 Workshop</div>
+            <h3>SynCrash</h3>
+            <div class="venue">Zero-shot accident detection & localization</div>
+            <p>A modular pipeline for detecting when an accident occurs, localizing its impact point, and classifying collision type in fixed-view traffic surveillance video without labeled real-world training data. It combines synthetic-data temporal learning with pretrained detection and physics-informed spatial reasoning.</p>
+            <div class="link-row"><a class="text-link" href="papers/SynCrash.pdf" target="_blank" rel="noopener">Read paper ↗</a><a class="text-link" href="https://github.com/RitulJangir" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a></div>
+            <details><summary>Method & contribution</summary><div class="detail-content">
+              <ul><li>VideoMAEv2-Giant fine-tuned on CARLA-based synthetic clips for temporal localization.</li><li>YOLO detections plus trajectory and geometric reasoning for impact localization.</li><li>Collision-type classification from detected vehicle configuration.</li><li>Reported official ACCIDENT metric: 0.38 public / 0.40 private leaderboard.</li></ul>
+            </div></details>
+          </article>
+          <article class="research-card reveal">
+            <div class="badge badge-review">Under review</div>
+            <h3>CLARIF</h3>
+            <div class="venue">CT rib fracture report generation · WACV 2027 submission</div>
+            <p>CLARIF (Clinical context-Aware RIb Fracture assessment) explores clinically grounded CT report generation through anatomy-aware visual features and a context-aware decoder. The manuscript is under review; the confidential submission PDF is intentionally not linked.</p>
+            <details><summary>Method & contribution</summary><div class="detail-content">
+              <ul><li>Centroid-based relative positional encoding for fracture-centric spatial reasoning.</li><li>Hierarchical anatomy-aware feature extraction across rib regions.</li><li>Clinical Context-Aware Decoder with pattern dictionaries, anatomical location encoding, and severity-aware gating.</li><li>Hard-negative contrastive learning to distinguish plausible but incorrect clinical descriptions.</li></ul>
+            </div></details>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt" id="projects">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="eyebrow">Beyond the papers</div><h2>Projects</h2></div><p>Selected research and engineering projects. More implementation details and repositories can be added as they become public.</p></div>
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-type">Generative modeling · Computer vision</div><h3>Sketch-to-Color Image Generation</h3>
+            <p>A conditional image-generation project focused on translating line-art sketches into plausible color images while preserving the structure and semantics of the original sketch.</p>
+            <details><summary>Project details</summary><div class="detail-content">Explores an encoder–diffusion/denoising–decoder workflow with timestep conditioning for sketch-guided synthesis.</div></details>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-type">Medical AI · Report generation</div><h3>CT-to-Report Generation</h3>
+            <p>A medical-imaging project focused on generating structured radiology-style text from CT inputs, with an emphasis on clinically meaningful visual features and report quality.</p>
+            <details><summary>Project details</summary><div class="detail-content">Related to the broader challenge of aligning 3D imaging evidence with accurate, anatomically grounded text generation.</div></details>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-type">Time series · Geospatial ML</div><h3>Traffic-Demand Forecasting</h3>
+            <p>Demand prediction using temporal lag features, rolling-window statistics, geospatial profiles, and tree-based ensembles.</p>
+            <details><summary>Project details</summary><div class="detail-content">Flipkart GRiDLock challenge work included feature engineering from limited historical observations and ensemble experimentation.</div></details>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-type">Video understanding · Tracking</div><h3>Accident Understanding Pipeline</h3>
+            <p>An end-to-end exploration of object detection, multi-object tracking, trajectory reasoning, temporal transformers, and collision localization.</p>
+            <details><summary>Project details</summary><div class="detail-content">Built around YOLO-style object detection, ByteTrack identities, motion features, and spatiotemporal reasoning for traffic videos.</div></details>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="eyebrow">Papers & status</div><h2>Publications</h2></div><p>Use the paper links where available. CLARIF is listed with its current review status and no public manuscript link.</p></div>
+        <div class="pub-list reveal">
+          <div class="pub"><div><h3>OphEdit: Training-Free Text-Guided Editing of Ophthalmic Surgical Video</h3><p>MedViD Workshop, ECCV 2026 · Oral paper</p></div><a class="text-link" href="papers/OphEdit.pdf" target="_blank" rel="noopener">PDF ↗</a></div>
+          <div class="pub"><div><h3>SynCrash: A Multi-Stage Pipeline for Zero-Shot Accident Detection and Localization in Traffic Surveillance Video</h3><p>CVPR 2026 Workshop · Accepted</p></div><a class="text-link" href="papers/SynCrash.pdf" target="_blank" rel="noopener">PDF ↗</a></div>
+          <div class="pub"><div><h3>CLARIF: Anatomy-Aware Contrastive Learning and Hierarchical Feature Extraction for CT Rib Fracture Report Generation</h3><p>WACV 2027 submission · Under review</p></div><span class="badge badge-review">Under review</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt" id="skills">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="eyebrow">Technical toolkit</div><h2>Skills</h2></div><p>Tools and methods used across my research and engineering work.</p></div>
+        <div class="skills-grid">
+          <div class="skill-box reveal"><h3>ML & Deep Learning</h3><div class="tag-list"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">scikit-learn</span><span class="tag">Model training</span><span class="tag">Evaluation</span></div></div>
+          <div class="skill-box reveal"><h3>Computer Vision</h3><div class="tag-list"><span class="tag">OpenCV</span><span class="tag">VideoMAE</span><span class="tag">YOLO</span><span class="tag">ByteTrack</span><span class="tag">3D vision</span></div></div>
+          <div class="skill-box reveal"><h3>Generative AI</h3><div class="tag-list"><span class="tag">Diffusion models</span><span class="tag">Video editing</span><span class="tag">VAE / VQ-VAE</span><span class="tag">LLMs</span><span class="tag">Multimodal models</span></div></div>
+          <div class="skill-box reveal"><h3>Programming</h3><div class="tag-list"><span class="tag">Python</span><span class="tag">C++</span><span class="tag">SQL</span></div></div>
+          <div class="skill-box reveal"><h3>Infrastructure</h3><div class="tag-list"><span class="tag">Linux</span><span class="tag">CUDA</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">SLURM</span></div></div>
+          <div class="skill-box reveal"><h3>Research practice</h3><div class="tag-list"><span class="tag">Ablations</span><span class="tag">Benchmarking</span><span class="tag">Data pipelines</span><span class="tag">Reproducibility</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="eyebrow">Milestones</div><h2>Achievements</h2></div><p>Selected academic, research, and competition highlights.</p></div>
+        <div class="ach-grid">
+          <article class="ach reveal"><strong>Oral</strong><h3>MedViD · ECCV 2026</h3><p>OphEdit accepted as an oral paper at the MedViD workshop.</p></article>
+          <article class="ach reveal"><strong>Accepted</strong><h3>CVPR 2026 Workshop</h3><p>SynCrash accepted for the ACCIDENT challenge/workshop track.</p></article>
+          <article class="ach reveal"><strong>91.93 R²</strong><h3>Flipkart GRiDLock</h3><p>Demand-prediction challenge result using only one day of prior data.</p></article>
+          <article class="ach reveal"><strong>AIR 210</strong><h3>GATE DA 2025</h3><p>All India Rank 210.</p></article>
+          <article class="ach reveal"><strong>Top 100</strong><h3>Amazon ML Challenge</h3><p>Top-100 finish.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt" id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <div><div class="eyebrow">Let's connect</div><h2>Research, build, and explore.</h2><p>Open to research collaborations and conversations around computer vision, generative AI, medical AI, and applied machine learning.</p></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="https://scholar.google.com/citations?hl=en&amp;user=_ycbz-sAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/rituljangir/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="btn btn-ghost" href="https://github.com/RitulJangir" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Ritul Jangir</span><span>AI Research · Computer Vision · Generative Models</span><a href="#top">Back to top ↑</a></div></footer>
+
+  <script>
+    // Responsive navigation
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu(){ mobileMenu.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); menuToggle.setAttribute('aria-label','Open navigation menu'); }
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => { if(event.key === 'Escape') closeMenu(); });
+
+    // Reveal animations, with graceful fallback
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      }), {threshold: 0.08});
+      revealItems.forEach(item => observer.observe(item));
+    } else revealItems.forEach(item => item.classList.add('visible'));
+
+    // Only show CV actions if resume.pdf has been added to the site root.
+    fetch('resume.pdf', {method:'HEAD'}).then(response => {
+      if(response.ok) document.querySelectorAll('.resume-link').forEach(link => link.hidden = false);
+    }).catch(() => {});
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
